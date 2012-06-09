@@ -12,20 +12,6 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (but you don't have to)
 
 #Install
-Put the dev-helper directory in your theme folder so your structure looks like this
-e.g
-- twentyeleven
-    --colors
-    --images
-    --inc
-    --js
-    --languages
-    --dev-helper
-    404.php
-    archive.php
-    author.php
-    category.php
-    etc
-    etc
-    etc
+##Step 1 - Put the dev-helper directory in your theme folder.
 
+##Step 2 - include the php file in your functions.php
