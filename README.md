@@ -12,6 +12,11 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (but you don't have to)
 
 #Install
-##Step 1 - Put the dev-helper directory in your theme folder.
+###Step 1 -
+- Put the dev-helper directory in your theme folder.
 
-##Step 2 - include the php file in your functions.php
+###Step 2
+- Include the php file in your functions.php
+
+###Step 3
+- Setup the 'config'
