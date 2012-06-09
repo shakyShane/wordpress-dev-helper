@@ -14,18 +14,18 @@ Come on, I know you're using jQuery on your Wordpress site anyway, let me handle
 #Install
 Put the dev-helper directory in your theme folder so your structure looks like this
 e.g
-    -twentyeleven
-        --colors
-        --images
-        --inc
-        --js
-        --languages
-        --dev-helper
-        404.php
-        archive.php
-        author.php
-        category.php
-        etc
-        etc
-        etc
+- twentyeleven
+    --colors
+    --images
+    --inc
+    --js
+    --languages
+    --dev-helper
+    404.php
+    archive.php
+    author.php
+    category.php
+    etc
+    etc
+    etc
 
