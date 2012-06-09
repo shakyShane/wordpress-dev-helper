@@ -12,6 +12,7 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (but you don't have to)
 
 #Install
+##Seriously, just look at the sample `functions.php` in the repo.
 ###Step 1 -
 - Put the dev-helper directory in your theme folder.
 
@@ -26,5 +27,8 @@ Come on, I know you're using jQuery on your Wordpress site anyway, let me handle
 
 #That's it!
 - It's all automated now. You can keep all your JS files separate whilst in dev, and auto include the Compressed single file in production
+
+###Notes
+- It uses `$_SERVER['HTTP_HOST']` to determine whether or not you are in your dev mode.
 
 
