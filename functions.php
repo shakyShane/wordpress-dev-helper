@@ -27,6 +27,10 @@ $config = array(
 
 $helper = new dev_helper($config);
 
+/** ------->>------- THAT'S ALL YOU NEED -------<<-------- */
+/** Below is just an explanation of the Config Options  */
+
+
 /**
 Explanation of config.
 
