@@ -90,7 +90,7 @@ class dev_helper {
 
         //Setup Jquery
         if ($this->jquery)
-            $this->enq_script('jquery', $this->jquery_url );
+            $this->enq_script('jquery_cdn', $this->jquery_url );
 
         //Check if we are in Dev Mode
         if ($_SERVER['HTTP_HOST'] == $config['localhost'] && $this->imitate_production === false){ // it's a DEV env
