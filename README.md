@@ -1,1 +1,1 @@
-#Wordpress Web Dev Helper
+#Wordpress Dev Helper
