@@ -10,3 +10,5 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 
 ###It does jQuery too.
 Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (or not so you don't break those badly written plugins)
+
+##Why is this cool?
