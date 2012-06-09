@@ -20,5 +20,16 @@ Come on, I know you're using jQuery on your Wordpress site anyway, let me handle
 
 ###Step 3
 - Copy the config array (sample functions.php file included)
+`$config = array(
+     'show_dev_bar' => true,
+     'imitate_production' => false,
+     'localhost' => 'tuts.local',
+     'templ_dir' => get_bloginfo('template_directory'),
+     'scripts' => array('html5.js', 'showcase.js', 'custom.js'),
+     'js_dir' => '/js',
+     'js_min_dir' => '/compiled',
+     'js_min_file' => 'compiled.js',
+     'jquery' => true
+ );`
 
 
