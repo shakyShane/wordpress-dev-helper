@@ -9,6 +9,23 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 - When it's live, your site will automatically call the single JS file and ignore everything else completely.
 
 ###It does jQuery too.
-Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (or not so you don't break those badly written plugins)
+Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (but you don't have to)
 
-##Why is this cool?
+#Install
+Put the dev-helper directory in your theme folder so your structure looks like this
+e.g
+    -twentyeleven
+        --colors
+        --images
+        --inc
+        --js
+        --languages
+        --dev-helper
+        404.php
+        archive.php
+        author.php
+        category.php
+        etc
+        etc
+        etc
+
