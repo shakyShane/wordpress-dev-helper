@@ -19,17 +19,12 @@ Come on, I know you're using jQuery on your Wordpress site anyway, let me handle
 - Include the php file in your functions.php `include('dev-helper/dev_helper.php')`
 
 ###Step 3
-- Copy the config array (sample functions.php file included)
-`$config = array(
-     'show_dev_bar' => true,
-     'imitate_production' => false,
-     'localhost' => 'tuts.local',
-     'templ_dir' => get_bloginfo('template_directory'),
-     'scripts' => array('html5.js', 'showcase.js', 'custom.js'),
-     'js_dir' => '/js',
-     'js_min_dir' => '/compiled',
-     'js_min_file' => 'compiled.js',
-     'jquery' => true
- );`
+- Copy the config array see the file for instructions
+
+###Step 4
+- Instantiate the object `$helper = new dev_helper($config);`
+
+#That's it!
+- It's all automated now. You can keep all your JS files separate whilst in dev, and auto include the Compressed single file in production
 
 
