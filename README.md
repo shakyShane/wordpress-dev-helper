@@ -16,7 +16,9 @@ Come on, I know you're using jQuery on your Wordpress site anyway, let me handle
 - Put the dev-helper directory in your theme folder.
 
 ###Step 2
-- Include the php file in your functions.php
+- Include the php file in your functions.php `include('dev-helper/dev_helper.php')`
 
 ###Step 3
-- Setup the 'config'
+- Copy the config array (sample functions.php file included)
+
+
