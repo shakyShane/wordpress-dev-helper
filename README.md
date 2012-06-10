@@ -10,7 +10,7 @@ Sure there are existing tools to help us do the same thing, but none are as effi
 
 #Huh?
 - When you're developing locally, you'll get your individual files
-- When your site 'live' on your server, you'll get a single, compressed file
+- When your site is 'live' on your server, you'll get a single, compressed file
 
 ##Why?
 - Not all projects go 'live' just once - So build scripts are not always the best solution.
