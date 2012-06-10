@@ -111,11 +111,8 @@ class dev_helper {
                 $action = $_GET['devhelper'];
                 if ( $action == 'cjs' ){
 
-                    //set the full file path for the COMPRESSED JS file output
-                    $compressed_js = dirname(__DIR__) . $this->js_dir . $this->js_min_dir . '/' . $this->js_min_file;
-
                     //Run the Compiler - bool returned
-                    if( $this->compile_js($compressed_js)){
+                    if( $this->compile_js()){
                         echo '<strong>Single JavaScript File Created at :</strong> ' . $this->get_output_file();
                         $wpurl = get_bloginfo('wpurl');
                         echo "<p><a href='$wpurl'>Continue</a></p>";
@@ -185,32 +182,30 @@ class dev_helper {
      * @return bool
      *
      */
-    public function compile_js( $compiled_js ){
+    public function compile_js(){
 
-        //check compiled_js at least has a value;
-        if ($compiled_js){
+        include('min/JSMin.php'); //minify script
 
-            include('min/JSMin.php'); //minify script
+        $js = null;
+        foreach($this->scripts as $file) {
 
-            $js = null;
-            foreach($this->scripts as $file) {
+            if ( $this->does_file_exist($file) ){ //check the file exists on the filesystem, (can't use HTTP here :( )
 
+                //set the full file path for the COMPRESSED JS file output
+                $compressed_js = dirname(__DIR__) . $this->js_dir . $this->js_min_dir . '/' . $this->js_min_file;
 
-                if ( $this->does_file_exist($file) ){ //check the file exists on the filesystem, (can't use HTTP here :( )
-
-                    $full_file_path = $this->templ_dir . $this->js_dir . '/' . $file; //set the full path of each JS file for use in file_get_contents()
-                    $file_source = file_get_contents($full_file_path);
-                    $js .= JSMin::minify($file_source);
-                    file_put_contents($compiled_js, $js);
-                }
-                else { //If we get here, you have errors in your config. Either the Directory is wrong or your filenames are.
-                    echo '<strong>There was a problem accessing the file</strong> : ' . $file . ' - Process aborted.<br />';
-                    echo "Check your config in 'functions.php'... Something got screwed up!";
-                    return false;
-                }
+                $full_file_path = $this->templ_dir . $this->js_dir . '/' . $file; //set the full path of each JS file for use in file_get_contents()
+                $file_source = file_get_contents($full_file_path);
+                $js .= JSMin::minify($file_source);
+                file_put_contents($compressed_js, $js);
             }
-            return true;
+            else { //If we get here, you have errors in your config. Either the Directory is wrong or your filenames are.
+                echo '<strong>There was a problem accessing the file</strong> : ' . $file . ' - Process aborted.<br />';
+                echo "Check your config in 'functions.php'... Something got screwed up!";
+                return false;
+            }
         }
+        return true;
         else echo 'There was a problem Writing the JS file - Do you have your Config setup correctly?';
     }
 
