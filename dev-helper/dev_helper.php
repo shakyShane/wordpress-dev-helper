@@ -198,6 +198,7 @@ class dev_helper {
                 $file_source = file_get_contents($full_file_path);
                 $js .= JSMin::minify($file_source);
                 file_put_contents($compressed_js, $js);
+                return true;
             }
             else { //If we get here, you have errors in your config. Either the Directory is wrong or your filenames are.
                 echo '<strong>There was a problem accessing the file</strong> : ' . $file . ' - Process aborted.<br />';
@@ -205,8 +206,5 @@ class dev_helper {
                 return false;
             }
         }
-        return true;
-        else echo 'There was a problem Writing the JS file - Do you have your Config setup correctly?';
     }
-
 }
