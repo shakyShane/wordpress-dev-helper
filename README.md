@@ -9,8 +9,8 @@ Sure there are existing tools to help us do the same thing, but none are as effi
 - When it's live, your site will automatically call the single JS file and ignore everything else completely.
 
 #Huh?
-- When you're developing locally, you'll get your individual files:
-- When your site 'live' on your server, you'll get a single, compressed file:
+- When you're developing locally, you'll get your individual files
+- When your site 'live' on your server, you'll get a single, compressed file
 
 ##Why?
 - Not all projects go 'live' just once - So build scripts are not always the best solution.
