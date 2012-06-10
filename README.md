@@ -8,21 +8,22 @@ Sure there are tools to help us do the same thing, but none are as efficient in 
 - When you are ready to go live, click 1 button and all your JS files will be minified and joined.
 - When it's live, your site will automatically call the single JS file and ignore everything else completely.
 
-###It does jQuery too.
-Come on, I know you're using jQuery on your Wordpress site anyway, let me handle it. (but you don't have to)
+##Why?
+- Not all projects go 'live' just once - So build scripts are not always the best solution.
+- Got a Wordpress project under a constant development/deployment cycle? This tool will help you.
 
 #Install
 ##Seriously, just look at the sample `functions.php` in the repo.
 ####Step 1
 - Put the dev-helper directory in your theme folder.
 
-####Step 2
-- Include the php file in your functions.php `include('dev-helper/dev_helper.php')`
+####Step 2 (in functions.php)
+- Include the php file at the top `include('dev-helper/dev_helper.php')`
 
-####Step 3
+####Step 3 (in functions.php)
 - Copy the config array see the file for instructions
 
-####Step 4
+####Step 4 (in functions.php)
 - Instantiate the object `$helper = new dev_helper($config);`
 
 #How to use it?
