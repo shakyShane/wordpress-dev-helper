@@ -1,7 +1,7 @@
 #Wordpress Dev Helper
 ###Built because I wanted a better/faster way to compress & minify JS files in Wordpress projects...
 
-Sure there are tools to help us do the same thing, but none are as efficient in a real-world Wordpress workflow.
+Sure there are existing tools to help us do the same thing, but none are as efficient in a real-world Wordpress workflow.
 
 ##What it does
 - Loads individual JS files when in a development environment (i.e - your local machine)
