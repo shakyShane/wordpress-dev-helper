@@ -10,7 +10,7 @@ Sure there are existing tools to help us do the same thing, but none are as effi
 
 #Huh?
 ->>> When you're developing locally, you'll get your individual files:
-- <script src="file1.js"></script>
+<script src="file1.js"></script>
 - <script src="file2.js"></script>
 - <script src="file3.js"></script>
 - <script src="plugin.js"></script>
