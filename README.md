@@ -17,7 +17,7 @@ Sure there are existing tools to help us do the same thing, but none are as effi
 - Got a Wordpress project under a constant development/deployment cycle? This tool will help you.
 
 #Install
-##Seriously, just look at the sample `functions.php` in the repo.
+(Have a look at the sample `functions.php` in the repo).
 ####Step 1
 - Put the dev-helper directory in your theme folder.
 
