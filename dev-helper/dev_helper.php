@@ -73,6 +73,8 @@ class dev_helper {
      */
     public $jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js";
 
+    public $jquery_ui = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js";
+
     /**
      * @var bool
      */
@@ -88,9 +90,12 @@ class dev_helper {
         foreach ($config as $k => $v)
             $this->$k = $v;
 
+        //allow an easier override to 'imitate production'
+        if ( $_GET['env'] && $_GET['env'] =='prod' ) $this->imitate_production = true;
+
         //Setup Jquery
-        if ($this->jquery)
-            $this->enq_script('jquery_cdn', $this->jquery_url );
+        if ($this->jquery)  $this->enq_script('jquery_cdn', $this->jquery_url );
+        if ($this->jquery_ui)  $this->enq_script('jquery_ui', $this->jquery_ui );
 
         //Check if we are in Dev Mode
         if ($_SERVER['HTTP_HOST'] == $config['localhost'] && $this->imitate_production === false){ // it's a DEV env
@@ -120,7 +125,7 @@ class dev_helper {
                 }
             }
         } else //it's a live site - Don't do anything except link to the Compressed JS file.
-            dev_helper::enq_script('min', $this->get_output_file()); //URL
+            dev_helper::enq_script('custom-min', $this->get_output_file()); //URL
     }
 
     /**
@@ -198,7 +203,6 @@ class dev_helper {
                 $file_source = file_get_contents($full_file_path);
                 $js .= JSMin::minify($file_source);
                 file_put_contents($compressed_js, $js);
-                return true;
             }
             else { //If we get here, you have errors in your config. Either the Directory is wrong or your filenames are.
                 echo '<strong>There was a problem accessing the file</strong> : ' . $file . ' - Process aborted.<br />';
