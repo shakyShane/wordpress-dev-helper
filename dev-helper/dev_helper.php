@@ -12,7 +12,7 @@
  *
  * No need to modify anything else, the class will do the lifting for you and when the site is
  * live it will only ever show the single compressed file.
- *
+ * 
  *
  */
 class dev_helper {
@@ -73,6 +73,10 @@ class dev_helper {
      */
     public $jquery_url = "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js";
 
+    /**
+    * @var string
+    * jQuery UI from CDN 
+    */
     public $jquery_ui = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js";
 
     /**
@@ -81,8 +85,8 @@ class dev_helper {
     public $is_dev = false;
 
     /**
-     *
-     * @param $config array
+     * 
+     * @param $config array - specified in functions.php
      */
     function __construct( $config ){
 
@@ -90,14 +94,14 @@ class dev_helper {
         foreach ($config as $k => $v)
             $this->$k = $v;
 
-        //allow an easier override to 'imitate production'
+        //Allow an easier override to 'imitate production'
         if ( $_GET['env'] && $_GET['env'] =='prod' ) $this->imitate_production = true;
 
-        //Setup Jquery
+        //Setup jQuery & jQuery if requested.
         if ($this->jquery)  $this->enq_script('jquery_cdn', $this->jquery_url );
         if ($this->jquery_ui)  $this->enq_script('jquery_ui', $this->jquery_ui );
 
-        //Check if we are in Dev Mode
+        //Are we in Dev Mode?
         if ($_SERVER['HTTP_HOST'] == $config['localhost'] && $this->imitate_production === false){ // it's a DEV env
 
             $this->is_dev = true;
@@ -121,15 +125,15 @@ class dev_helper {
                         echo '<strong>Single JavaScript File Created at :</strong> ' . $this->get_output_file();
                         $wpurl = get_bloginfo('wpurl');
                         echo "<p><a href='$wpurl'>Continue</a></p>";
-                    } // _TODO We gunna handle an error here or what?
+                    } // _TODO - Handle error here.
                 }
             }
-        } else //it's a live site - Don't do anything except link to the Compressed JS file.
+        } else //it's a live site - Don't do anything except link to the single Compressed JS file.
             dev_helper::enq_script('custom-min', $this->get_output_file()); //URL
     }
 
     /**
-     * Helper to reduce code repetition & shiz.
+     * Helper to reduce code repetition.
      * Using variables set in config, determine the final output file.
      * @return string
      */
@@ -139,9 +143,9 @@ class dev_helper {
     }
 
     /**
-     * Use to Wordpress's functions to correctly enqueue our JavaScripts
+     * Use Wordpress's functions to correctly enqueue our JavaScripts
      *
-     * @param $handle (call me what you want, baby)
+     * @param $handle
      * @param $file (full file path)
      * @param bool $in_footer
      */
@@ -167,6 +171,10 @@ class dev_helper {
         }
     }
 
+    /**
+    * Does the file actually exist on the filesystem?
+    * @param string $file - Filename only e.g 'custom.js'
+    */
     public function does_file_exist($file){
 
         if (file_exists(dirname(__DIR__) . $this->js_dir . '/' . $file))
@@ -174,16 +182,13 @@ class dev_helper {
     }
 
     /**
-     * Join and Smash
-     *  Using min/JSMin.php
+     * Join and Compress * Using min/JSMin.php
      *
-     * Goes through each file in the $this->scripts array (you remember that from your config yeah?)
+     * Goes through each file in the $this->scripts array
      * Check along the way that the file actually exists!
      *
      * NOTE: if you have specified incorrect paths/filenames, the whole thing will breakdown. And cry.
-     * Get all your config option right & you'll end up with a single Minified and Concatenated http request! :)
      *
-     * @param $compiled_js - the absolute path to the finished output file.
      * @return bool
      *
      */
